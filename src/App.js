@@ -13,11 +13,7 @@ function App() {
       <Navbar/>
       <Banner/>
       <Row title='Trending Now' fetchUrl={requests.fetchTrending} isLargeRow/>
-
-      <Row 
-        title='Action' 
-        fetchUrl={requests.fetchActionMovies}
-      />
+      <Row title='Action' fetchUrl={requests.fetchActionMovies}/>
       <Row title='Comedy' fetchUrl={requests.fetchComedyMovies} />
       {/* <Swipe/> */}
       {/* <Testpage/> */}
