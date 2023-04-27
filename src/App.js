@@ -1,13 +1,26 @@
+import React from "react";
 import './App.css';
 import Row from './Row';
-import requests from './Requests.js';
+import Swipe from './Swipe';
+import requests from './Requests';
+import Banner from './Banner';
+import Testpage from './Testpage';
+import Navbar from "./Navbar";
 
 function App() {
   return (
     <div className="App">
-       <Row title='Action' fetchUrl={requests.fetchActionMovies} isLargeRow={true}/>
-       <Row title='Comedy' fetchUrl={requests.fetchComedyMovies}/>
-       <Row title='Trending Now' fetchUrl={requests.fetchTrending}/>
+      <Navbar/>
+      <Banner/>
+      <Row title='Trending Now' fetchUrl={requests.fetchTrending} isLargeRow/>
+
+      <Row 
+        title='Action' 
+        fetchUrl={requests.fetchActionMovies}
+      />
+      <Row title='Comedy' fetchUrl={requests.fetchComedyMovies} />
+      {/* <Swipe/> */}
+      {/* <Testpage/> */}
     </div>
   );
 }

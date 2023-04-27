@@ -1,0 +1,26 @@
+/* button {
+    background-color: red;
+    border: 5px solid gold;
+} */
+
+.swiper-row {
+    display: flex;
+}
+
+.manos::-webkit-scrollbar {
+    display: none;
+    /* scroll-behavior: smooth; */
+} 
+/* .row__poster {
+
+   
+} */
+
+.manos {
+    display: flex;
+    object-fit: contain;
+    width:100%;
+    max-height: 100px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
