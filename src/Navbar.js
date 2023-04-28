@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css'
-import logo from './assets/netflix-logo.svg.png';
+import logo from './assets/MoviesZoneLogo.png';
 import avatar from './assets/Netflix-avatar.png';
 import './Navbar.css'
 

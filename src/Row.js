@@ -71,7 +71,7 @@ function Row({title, fetchUrl, isLargeRow}) {
         </div>
         {   trailerUrl && 
             <div  className='row__movie'>
-                <div className='row__movie-overlay' onClick={() => handleClick(moviePreview)}> overlay</div>
+                <div className='row__movie-overlay' onClick={() => handleClick(moviePreview)}> </div>
                 <div className='row__movie-close' onClick={() => handleClick(moviePreview)}> {trailerUrl && 'X'}</div>
                 <YouTube className='row__movie-iframe' videoId={trailerUrl} opts={opts} />
                 <div className='row__movie-overview'> {moviePreview.overview} </div>
