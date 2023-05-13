@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from './axios';
 import {base_url}  from './Requests';
-import Row from './Row';
+// import Row from './Row';
 import requests from './Requests';
 import './Swipe.css'
 
 
-const isLargeRow = true;
-const colors = ["red", "orange", "yellow", "green", "blue", "purple", 
-"pink", "brown", "gray", "black", "white", "maroon", "teal", "navy", 
-"olive", "peach", "lavender", "magenta", "turquoise", "gold"]
+// const isLargeRow = true;
+// const colors = ["red", "orange", "yellow", "green", "blue", "purple", 
+// "pink", "brown", "gray", "black", "white", "maroon", "teal", "navy", 
+// "olive", "peach", "lavender", "magenta", "turquoise", "gold"]
 
 export default function ScrollableElement() {
   const elementRef = useRef(null);
@@ -23,24 +23,26 @@ export default function ScrollableElement() {
           return request;
       }
       fetchData();
-  }, [requests.fetchComedyMovies]);
+  }, 
+  // [requests.fetchComedyMovies]
+  );
 
   console.log(movies)
 
 
 
-  function scrollTop() {
-    console.log( elementRef.current.scrollTop)
-    elementRef.current.scrollTop = 0;
-    console.log( elementRef.current.scrollTop)
+  // function scrollTop() {
+  //   console.log( elementRef.current.scrollTop)
+  //   elementRef.current.scrollTop = 0;
+  //   console.log( elementRef.current.scrollTop)
 
-  }
+  // }
 
-  function scrollToBottom() {
-    console.log( elementRef.current.scrollTop)
-    elementRef.current.scrollTop = 425;
-    console.log( elementRef.current.scrollTop)
-  }
+  // function scrollToBottom() {
+  //   console.log( elementRef.current.scrollTop)
+  //   elementRef.current.scrollTop = 425;
+  //   console.log( elementRef.current.scrollTop)
+  // }
 
   function scrollToLeft() {
     console.log( elementRef.current.scrollLeft)

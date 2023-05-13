@@ -1,10 +1,10 @@
 import React from "react";
 import './App.css';
 import Row from './Row';
-import Swipe from './Swipe';
+// import Swipe from './Swipe';
 import requests from './Requests';
 import Banner from './Banner';
-import Testpage from './Testpage';
+// import Testpage from './Testpage';
 import Navbar from "./Navbar";
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from './axios';
 import {base_url}  from './Requests';
 import './Row.css';
@@ -13,14 +13,25 @@ function Row({title, fetchUrl, isLargeRow}) {
     const [trailerUrl, setTrailerUrl] = useState('');
 
 
-    const opts = {
-        height: '390',
-        width: '640',
+    const [playerWidth, setPlayerWidth] = useState({
+        height: '0',
+        width: '0',
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
           autoplay: 1,
         },
-    }
+    });
+
+    
+   
+    // let opts = {
+    //     height: '390',
+    //     width: '640',
+    //     playerVars: {
+    //       // https://developers.google.com/youtube/player_parameters
+    //       autoplay: 1,
+    //     },
+    // }
     
     useEffect(() => {
        
@@ -31,6 +42,41 @@ function Row({title, fetchUrl, isLargeRow}) {
         }
         fetchData();
     }, [fetchUrl]);
+
+    useEffect(() => {
+        function handleResize() {
+          if (window.innerWidth < 400) {
+            setPlayerWidth(
+                {
+                    height: '195',
+                    width: '320',
+                    playerVars: {
+                      // https://developers.google.com/youtube/player_parameters
+                      autoplay: 1,
+                    },
+                }
+
+            );
+          } else {
+            setPlayerWidth({
+                height: '390',
+                width: '640',
+                playerVars: {
+                  // https://developers.google.com/youtube/player_parameters
+                  autoplay: 1,
+                },
+            });
+          }
+        }
+    
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+        }, []);
+      
   
     // console.log(movies)
     const handleClick = (movie) => {
@@ -73,7 +119,8 @@ function Row({title, fetchUrl, isLargeRow}) {
             <div  className='row__movie'>
                 <div className='row__movie-overlay' onClick={() => handleClick(moviePreview)}> </div>
                 <div className='row__movie-close' onClick={() => handleClick(moviePreview)}> {trailerUrl && 'X'}</div>
-                <YouTube className='row__movie-iframe' videoId={trailerUrl} opts={opts} />
+                <YouTube className='row__movie-iframe' videoId={trailerUrl} opts={playerWidth} />
+
                 <div className='row__movie-overview'> {moviePreview.overview} </div>
             </div>
         }
